@@ -29,7 +29,13 @@ namespace Business.Services
 
         public Country Delete(int id)
         {
-            throw new NotImplementedException();
+            Country isExist = _countryRepository.GetOne(g => g.Id == Id);
+            if (isExist==null)
+            {
+                return null;
+            }
+            _countryRepository.Delete(isExist);
+            return isExist;
         }
 
         public Country GetCountry(string name)

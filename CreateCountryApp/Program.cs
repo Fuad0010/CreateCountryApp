@@ -1,4 +1,5 @@
 ﻿using Business.Services;
+using CreateCountryApp.Controllers;
 using DataAccess.Repositories;
 using Entities.Models;
 using System;
@@ -17,7 +18,7 @@ namespace CreateCountryApp
             Extention.Print(ConsoleColor.Magenta, "Welcome");
             while (true)
             {
-                CountryService countryService = new CountryService();
+                CountryController countryController = new CountryController();
 
 
 
@@ -31,14 +32,14 @@ namespace CreateCountryApp
                 int input;
 
                 bool IsNum = int.TryParse(num, out input);
-                if (IsNum && input > 0 && input < 5)
+                if (IsNum && input > 0 && input < 6)
                 {
 
                     switch (input)
                     {
                         
                         case (int)Extention.Menu.CreateCountry:            // 1    
-                           
+                           countryController.CreateCountry();
                             break;
                         case (int)Extention.Menu.UpdateCountry:            // 2
 
@@ -50,14 +51,7 @@ namespace CreateCountryApp
 
                             break;
                         case (int)Extention.Menu.GetAllCountries:          // 5
-                            string name2 = Console.ReadLine();
-
-                            foreach (var item in countryService.GetAll(name2))
-                            {
-                            Extention.Print(ConsoleColor.Yellow, $"{item.Name}");
-
-                            }
-
+                            countryController.GetAllCountry();
                             break;
 
                     }

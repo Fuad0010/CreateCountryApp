@@ -50,7 +50,14 @@ namespace CreateCountryApp.Controllers
                 goto EnterName;
             }
         }
+        public void GetAllCountry()
+        {
+            string name2 = Console.ReadLine();
 
-
+            foreach (var item in countryService.GetAll(name2))
+            {
+                Extention.Print(ConsoleColor.Yellow, $"{item.Name}");
+            }
+        }
     }
 }
