@@ -3,15 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32210.238
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreateCountryApp", "CreateCountryApp\CreateCountryApp.csproj", "{8B16D369-EACD-4A94-97FA-056F6C4BF743}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CreateCountryApp", "CreateCountryApp\CreateCountryApp.csproj", "{8B16D369-EACD-4A94-97FA-056F6C4BF743}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entities", "Entities\Entities.csproj", "{274E117E-C689-45C0-B323-AA37F267FE6F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Entities", "Entities\Entities.csproj", "{274E117E-C689-45C0-B323-AA37F267FE6F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccess", "DataAccess\DataAccess.csproj", "{9B37B8CF-21A8-4CFE-8B8C-9C25438E8AF1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAccess", "DataAccess\DataAccess.csproj", "{9B37B8CF-21A8-4CFE-8B8C-9C25438E8AF1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Business", "Business\Business.csproj", "{80A3DE7C-50AA-4B0C-B198-56E9D5A4F961}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Business", "Business\Business.csproj", "{80A3DE7C-50AA-4B0C-B198-56E9D5A4F961}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Utilities", "Utilities\Utilities.csproj", "{FE03EF45-AEC9-4858-A8A1-A7D14EF791AE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Utilities", "Utilities\Utilities.csproj", "{FE03EF45-AEC9-4858-A8A1-A7D14EF791AE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

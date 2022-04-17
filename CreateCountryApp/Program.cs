@@ -31,53 +31,33 @@ namespace CreateCountryApp
                 int input;
 
                 bool IsNum = int.TryParse(num, out input);
-                if (IsNum && input > 0 && input < 7)
+                if (IsNum && input > 0 && input < 5)
                 {
 
                     switch (input)
                     {
-                        case (int)Extention.Menu.CreateCountry:
-                        EnterName:
-                            Extention.Print(ConsoleColor.Cyan, $"Please enter the country name:");
-                            string name = Console.ReadLine();
-                            Extention.Print(ConsoleColor.Cyan, $"Please enter the country size:");
-                            string countrySize = Console.ReadLine();
-                            int size;
-
-
-                            bool isSize = int.TryParse(countrySize, out size);
-                            if (isSize)
-                            {
-                                Country country = new Country
-                                {
-                                    Name = name,
-                                    MaxSize = size
-                                };
-                                
-                                countryService.Create(country);
-                                Extention.Print(ConsoleColor.Green, $"{country.Name} created");
-
-                            }
-                            else
-                            {
-                                Extention.Print(ConsoleColor.Red, "Try Again");
-                                goto EnterName;
-                            }
+                        
+                        case (int)Extention.Menu.CreateCountry:            // 1    
+                           
                             break;
-                        case (int)Extention.Menu.UpdateCountry:
+                        case (int)Extention.Menu.UpdateCountry:            // 2
 
                             break;
-                        case (int)Extention.Menu.RemoveCountry:
+                        case (int)Extention.Menu.RemoveCountry:            // 3
 
                             break;
-                        case (int)Extention.Menu.GetCountry:
+                        case (int)Extention.Menu.GetCountry:               // 4
 
                             break;
-                        case (int)Extention.Menu.GetAllCountries:
+                        case (int)Extention.Menu.GetAllCountries:          // 5
                             string name2 = Console.ReadLine();
-                            Country list = countryService.GetCountry(name2);
 
-                            Extention.Print(ConsoleColor.Yellow, $"{list.Name}");
+                            foreach (var item in countryService.GetAll(name2))
+                            {
+                            Extention.Print(ConsoleColor.Yellow, $"{item.Name}");
+
+                            }
+
                             break;
 
                     }

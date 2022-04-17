@@ -14,7 +14,7 @@ namespace Business.Interfaces
         Country Delete (int id);
         Country GetCountry(string name);
         Country GetCountry(int id);
-        List<Country> GetAll();
+        List<Country> GetAll(string name=null);
 
 
 

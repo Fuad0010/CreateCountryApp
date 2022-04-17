@@ -41,14 +41,16 @@ namespace Business.Services
         {
             throw new NotImplementedException();
         }
-        public List<Country> GetAll()
+        public List<Country> GetAll(string name)
         {
-            return _countryRepository.GetAll();
+            return _countryRepository.GetAll(g=>g.Name==name);
         }
 
         public Country GetCountry(int id)
         {
             return _countryRepository.GetOne(g=>g.Id==id);
         }
+
+        
     }
 }
