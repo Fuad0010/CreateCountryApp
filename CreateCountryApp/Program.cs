@@ -9,11 +9,6 @@ namespace CreateCountryApp
 {
     internal class Program
     {
-        //private static CountryService countryService;
-        //public Program()
-        //{
-        //    countryService = new CountryService();
-        //}
 
 
 
