@@ -43,7 +43,8 @@ namespace DataAccess.Repositories
         {
             try
             {
-                return DataContext.Countries.FindAll(filter);
+                return filter == null ? DataContext.Countries : 
+                    DataContext.Countries.FindAll(filter);
             }
             catch (Exception)
             {

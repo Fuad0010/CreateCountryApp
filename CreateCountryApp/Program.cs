@@ -36,7 +36,7 @@ namespace CreateCountryApp
 
                     switch (input)
                     {
-                        case 1:
+                        case (int)Extention.Menu.CreateCountry:
                         EnterName:
                             Extention.Print(ConsoleColor.Cyan, $"Please enter the country name:");
                             string name = Console.ReadLine();
@@ -64,16 +64,16 @@ namespace CreateCountryApp
                                 goto EnterName;
                             }
                             break;
-                        case 2:
+                        case (int)Extention.Menu.UpdateCountry:
 
                             break;
-                        case 3:
+                        case (int)Extention.Menu.RemoveCountry:
 
                             break;
-                        case 4:
+                        case (int)Extention.Menu.GetCountry:
 
                             break;
-                        case 5:
+                        case (int)Extention.Menu.GetAllCountries:
                             string name2 = Console.ReadLine();
                             Country list = countryService.GetCountry(name2);
 

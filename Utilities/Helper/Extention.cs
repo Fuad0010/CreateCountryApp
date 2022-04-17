@@ -14,7 +14,14 @@ namespace Utilities.Helper
             Console.WriteLine(message);
             Console.ResetColor();
         }
-
+        public enum Menu
+        {
+            CreateCountry = 1,
+            UpdateCountry = 2,
+            RemoveCountry = 3,
+            GetCountry = 4,
+            GetAllCountries = 5
+        }
 
     }
 }

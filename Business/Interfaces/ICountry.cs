@@ -13,8 +13,8 @@ namespace Business.Interfaces
         Country Update(int id, Country country);
         Country Delete (int id);
         Country GetCountry(string name);
-
-
+        Country GetCountry(int id);
+        List<Country> GetAll();
 
 
 

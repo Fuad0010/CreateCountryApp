@@ -34,7 +34,7 @@ namespace Business.Services
 
         public Country GetCountry(string name)
         {
-            return _countryRepository.GetOne();
+            return _countryRepository.GetOne(g=>g.Name==name);
         }
 
         public Country Update(int id, Country country)
@@ -46,7 +46,9 @@ namespace Business.Services
             return _countryRepository.GetAll();
         }
 
-
-
+        public Country GetCountry(int id)
+        {
+            return _countryRepository.GetOne(g=>g.Id==id);
+        }
     }
 }
