@@ -11,7 +11,7 @@ namespace Business.Services
 {
     public class CountryService : ICountry
     {
-        public static int Count { get; set; }
+        public static int Count = 1;
         private CountryRepository _countryRepository; 
         public CountryService ()
         {
@@ -27,7 +27,7 @@ namespace Business.Services
             return country;
         }
 
-        public Country Delete(int id)
+        public Country Delete(int Id)
         {
             Country isExist = _countryRepository.GetOne(g => g.Id == Id);
             if (isExist==null)
@@ -47,9 +47,9 @@ namespace Business.Services
         {
             throw new NotImplementedException();
         }
-        public List<Country> GetAll(string name)
+        public List<Country> GetAll()
         {
-            return _countryRepository.GetAll(g=>g.Name==name);
+            return _countryRepository.GetAll();
         }
 
         public Country GetCountry(int id)
@@ -57,6 +57,9 @@ namespace Business.Services
             return _countryRepository.GetOne(g=>g.Id==id);
         }
 
-        
+        public List<Country> GetAll(string name = null)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

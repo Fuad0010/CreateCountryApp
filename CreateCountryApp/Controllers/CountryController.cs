@@ -1,4 +1,5 @@
 ﻿using Business.Services;
+using DataAccess;
 using Entities.Models;
 using System;
 using System.Collections.Generic;
@@ -11,7 +12,9 @@ namespace CreateCountryApp.Controllers
 {
     internal class CountryController
     {
-        private CountryService countryService;
+         CountryService countryService = new CountryService();
+
+       
 
         public CountryController()
         {
@@ -40,7 +43,7 @@ namespace CreateCountryApp.Controllers
 
                 countryService.Create(country);
                 Console.Clear();
-                Extention.Print(ConsoleColor.Green, $"{country.Name} created");
+                Extention.Print(ConsoleColor.Green, $"{country.Name} created.");
 
             }
             else
@@ -50,14 +53,57 @@ namespace CreateCountryApp.Controllers
                 goto EnterName;
             }
         }
-        public void GetAllCountry()
+        public void GetAllCountries()
         {
-            string name2 = Console.ReadLine();
-
-            foreach (var item in countryService.GetAll(name2))
+            Console.Clear();
+            foreach (var item in countryService.GetAll())
             {
-                Extention.Print(ConsoleColor.Yellow, $"{item.Name}");
+                Extention.Print(ConsoleColor.Yellow, $"{item.Name}.");
             }
+        }
+        public void RemoveCountry()
+        {
+            RestartMenu: Console.Clear();
+            Extention.Print(ConsoleColor.Cyan, "Please enter the country ID for remove.");
+
+            int id;
+            
+            
+            foreach (var item in countryService.GetAll())
+            {
+                Extention.Print(ConsoleColor.Yellow, $"ID:{item.Id} {item.Name}.");
+                
+            }
+                 id = int.Parse(Console.ReadLine());
+            if (id>DataContext.Countries.Count)
+            {
+                Extention.Print(ConsoleColor.Red, "Please choose current the ID.");
+                goto RestartMenu;
+            }
+
+            Console.Clear();
+                Extention.Print(ConsoleColor.Red, $"{countryService.Delete(id).Name} is removed.");
+        }
+        public void GetCountry(string name)
+        {
+            Console.Clear();
+            Extention.Print(ConsoleColor.Cyan, "Please enter the country ID or name of counry for get.");
+            string num = Console.ReadLine();
+            int input;
+
+            bool IsNum = int.TryParse(num, out input);
+            if (IsNum)
+            {
+                //countryService.GetCountry(g => g.Name== name);
+            }
+            else
+            {
+                foreach (var item in countryService.GetAll())
+                {
+                    Extention.Print(ConsoleColor.Yellow, $"ID:{item.Id} {item.Name}.");
+                }
+            }
+            
         }
     }
 }

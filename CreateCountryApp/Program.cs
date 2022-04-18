@@ -23,7 +23,7 @@ namespace CreateCountryApp
 
 
                 Extention.Print(ConsoleColor.Cyan, "1. Create Country\n" +
-                                                   "2. Update Countryn\n" +
+                                                   "2. Update Country\n" +
                                                    "3. Remove Country\n" +
                                                    "4. Get Country\n" +
                                                    "5. Get All Countries");
@@ -34,10 +34,8 @@ namespace CreateCountryApp
                 bool IsNum = int.TryParse(num, out input);
                 if (IsNum && input > 0 && input < 6)
                 {
-
                     switch (input)
                     {
-                        
                         case (int)Extention.Menu.CreateCountry:            // 1    
                            countryController.CreateCountry();
                             break;
@@ -45,25 +43,17 @@ namespace CreateCountryApp
 
                             break;
                         case (int)Extention.Menu.RemoveCountry:            // 3
-
+                            countryController.RemoveCountry();
                             break;
                         case (int)Extention.Menu.GetCountry:               // 4
-
+                            //countryController.GetCountry();
                             break;
                         case (int)Extention.Menu.GetAllCountries:          // 5
-                            countryController.GetAllCountry();
+                            countryController.GetAllCountries();
                             break;
-
                     }
                 }
-
-
-
-
-
             }
-
-
         }
     }
 }
