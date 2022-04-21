@@ -40,13 +40,17 @@ namespace CreateCountryApp
                            countryController.CreateCountry();
                             break;
                         case (int)Extention.Menu.UpdateCountry:            // 2
-
+                            countryController.UpdateCountry();
                             break;
                         case (int)Extention.Menu.RemoveCountry:            // 3
                             countryController.RemoveCountry();
                             break;
                         case (int)Extention.Menu.GetCountry:               // 4
+<<<<<<< HEAD
+                            countryController.GetCountry();
+=======
                             //countryController.GetCountry();
+>>>>>>> 08e77844423d428f9589acdc8ffc6db0cbb24071
                             break;
                         case (int)Extention.Menu.GetAllCountries:          // 5
                             countryController.GetAllCountries();

@@ -43,9 +43,16 @@ namespace Business.Services
             return _countryRepository.GetOne(g=>g.Name==name);
         }
 
-        public Country Update(int id, Country country)
+        public Country Update(int id,Country country)
         {
-            throw new NotImplementedException();
+            Country isExist = _countryRepository.GetOne(g => g.Id == id);
+            if (isExist == null)
+            {
+                return null;
+            }
+            isExist.Name = country.Name;
+            _countryRepository.Update(isExist);
+            return isExist;
         }
         public List<Country> GetAll()
         {
@@ -61,5 +68,20 @@ namespace Business.Services
         {
             throw new NotImplementedException();
         }
+<<<<<<< HEAD
+
+        public Country Update(string id, Country country)
+        {
+            Country isExist = _countryRepository.GetOne(g => g.Name == id);
+            if (isExist == null)
+            {
+                return null;
+            }
+            isExist.Name = country.Name;
+            _countryRepository.Update(isExist);
+            return isExist;
+        }
+=======
+>>>>>>> 08e77844423d428f9589acdc8ffc6db0cbb24071
     }
 }

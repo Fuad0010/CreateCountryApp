@@ -10,7 +10,7 @@ namespace Business.Interfaces
     public interface ICountry
     {
         Country Create(Country country);
-        Country Update(int id, Country country);
+        Country Update(string name, Country country);
         Country Delete (int id);
         Country GetCountry(string name);
         Country GetCountry(int id);
