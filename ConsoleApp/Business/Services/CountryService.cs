@@ -68,7 +68,7 @@ namespace Business.Services
         {
             throw new NotImplementedException();
         }
-<<<<<<< HEAD
+
 
         public Country Update(string id, Country country)
         {
@@ -81,7 +81,7 @@ namespace Business.Services
             _countryRepository.Update(isExist);
             return isExist;
         }
-=======
->>>>>>> 08e77844423d428f9589acdc8ffc6db0cbb24071
+
+
     }
 }

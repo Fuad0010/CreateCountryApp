@@ -13,12 +13,12 @@ namespace Entities.Models
 
         public string Name { get; set; }
         public int MaxSize { get; set; }
-<<<<<<< HEAD
-=======
+
+
 
         
 
 
->>>>>>> 08e77844423d428f9589acdc8ffc6db0cbb24071
+
     }
 }
