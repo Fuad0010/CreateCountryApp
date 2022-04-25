@@ -15,25 +15,36 @@ namespace CreateCountryApp
 
         static void Main(string[] args)
         {
-            Extention.Print(ConsoleColor.Magenta, "Welcome");
+            Extention.Print(ConsoleColor.Yellow, "Welcome To Creater Countries & Cities");
             while (true)
             {
+
+                RestartMenu:
+
+
                 CountryController countryController = new CountryController();
 
 
+                Extention.Print(ConsoleColor.Cyan, "1. Create Country.\n" +
+                                                   "2. Update Country.\n" +
+                                                   "3. Remove Country.\n" +
+                                                   "4. Get Country.\n" +
+                                                   "5. Get All Countries.\n" +
+                                                   "0. Exit.");
 
-                Extention.Print(ConsoleColor.Cyan, "1. Create Country\n" +
-                                                   "2. Update Country\n" +
-                                                   "3. Remove Country\n" +
-                                                   "4. Get Country\n" +
-                                                   "5. Get All Countries");
 
                 string num = Console.ReadLine();
                 int input;
 
                 bool IsNum = int.TryParse(num, out input);
-                if (IsNum && input > 0 && input < 6)
+                
+                Console.Clear();
+
+
+                if (IsNum && input >= 0 && input < 6)
                 {
+                    
+                    
                     switch (input)
                     {
                         case (int)Extention.Menu.CreateCountry:            // 1    
@@ -51,7 +62,15 @@ namespace CreateCountryApp
                         case (int)Extention.Menu.GetAllCountries:          // 5
                             countryController.GetAllCountries();
                             break;
+                        case (int)Extention.Menu.Exit:
+                            countryController.MenuExit();
+                            break;
                     }
+                }
+                else
+                {
+                    Extention.Print(ConsoleColor.Red, "Please choose current menu.");
+                    goto RestartMenu;
                 }
             }
         }

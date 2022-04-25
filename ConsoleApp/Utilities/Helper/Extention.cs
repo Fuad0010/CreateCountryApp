@@ -20,7 +20,8 @@ namespace Utilities.Helper
             UpdateCountry = 2,
             RemoveCountry = 3,
             GetCountry = 4,
-            GetAllCountries = 5
+            GetAllCountries = 5,
+            Exit = 0
         }
 
     }
