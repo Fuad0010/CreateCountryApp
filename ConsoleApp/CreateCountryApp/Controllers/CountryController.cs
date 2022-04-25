@@ -2,10 +2,6 @@
 using DataAccess;
 using Entities.Models;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Utilities.Helper;
 
 namespace CreateCountryApp.Controllers
@@ -25,7 +21,7 @@ namespace CreateCountryApp.Controllers
         public void CreateCountry()
         {
             Console.Clear();
-        EnterName:
+            EnterName:
             Extention.Print(ConsoleColor.Cyan, $"Please enter the country name:");
             string name = Console.ReadLine();
             Console.Clear();
@@ -92,7 +88,7 @@ namespace CreateCountryApp.Controllers
             Console.Clear();
             Extention.Print(ConsoleColor.Cyan, "Please enter the country ID or name of counry for get.\n" +
                                                "Country list:");
-            Current:
+        Current:
             foreach (var item in countryService.GetAll())
             {
                 Extention.Print(ConsoleColor.Yellow, $"\"ID:{item.Id} {item.Name}.\"");
@@ -122,7 +118,7 @@ namespace CreateCountryApp.Controllers
                                                    "Country list:");
                 goto Current;
             }
-            
+
 
         }
         public void UpdateCountry()
@@ -130,33 +126,46 @@ namespace CreateCountryApp.Controllers
             Console.Clear();
             Extention.Print(ConsoleColor.Cyan, "Please enter the country ID for update.\n" +
                                                "Country list:");
+            Update:
 
             foreach (var item in countryService.GetAll())
             {
                 Extention.Print(ConsoleColor.Yellow, $"\"ID:{item.Id} {item.Name}.\"");
             }
-
+            int id;
             
-            int id = Convert.ToInt32(Console.ReadLine());
-            string countryNewName;
+            id = Convert.ToInt32(Console.ReadLine());
 
-            Extention.Print(ConsoleColor.Cyan, "Please enter the new country.");
-
-            countryNewName = (Console.ReadLine());
-
-            Country cntry = new Country()
+            if (!(id >= CountryService.Count))
             {
-                Name = countryNewName,
-            };
-            countryService.Update(id, cntry);
-            Console.Clear();
-            Extention.Print(ConsoleColor.Green, $"{cntry.Name} updated!");
-}
+
+                string countryNewName;
+
+                Extention.Print(ConsoleColor.Cyan, "Please enter the new country.");
+
+                countryNewName = (Console.ReadLine());
+
+                Country cntry = new Country()
+                {
+                    Name = countryNewName,
+                };
+                countryService.Update(id, cntry);
+                Console.Clear();
+                Extention.Print(ConsoleColor.Green, $"{cntry.Name} updated!");
+            }
+            else
+            {
+                Console.Clear();
+                Extention.Print(ConsoleColor.Red, "Please enter the country ID for update.\n" +
+                                                   "Country list:");
+                goto Update;
+            }
+        }
         public void MenuExit()
         {
             Console.Clear();
-            Extention.Print(ConsoleColor.Cyan,"Good Bye");
+            Extention.Print(ConsoleColor.Cyan, "Good Bye");
             System.Environment.Exit(0);
         }
-        }
     }
+}
