@@ -152,29 +152,6 @@ namespace CreateCountryApp.Controllers
             Console.Clear();
             Extention.Print(ConsoleColor.Green, $"{cntry.Name} updated!");
 }
-        public void GetCountry(string name)
-            {
-                Console.Clear();
-                Extention.Print(ConsoleColor.Cyan, "Please enter the country ID or name of counry for get.");
-                string num = Console.ReadLine();
-                int input;
-
-                bool IsNum = int.TryParse(num, out input);
-
-                if (IsNum)
-                {
-                    
-                }
-                else
-                {
-                    foreach (var item in countryService.GetAll())
-                    {
-                        Extention.Print(ConsoleColor.Yellow, $"ID:{item.Id} {item.Name}.");
-                    }
-
-                }
-
-            }
         public void MenuExit()
         {
             Console.Clear();
