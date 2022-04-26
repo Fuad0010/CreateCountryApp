@@ -62,26 +62,42 @@ namespace CreateCountryApp.Controllers
         public void RemoveCountry()
 
         {
-        RestartMenu: Console.Clear();
             Extention.Print(ConsoleColor.Cyan, "Please enter the country ID for remove.");
+        RestartMenu:
 
-
-
+            //Console.Clear();
 
             foreach (var item in countryService.GetAll())
             {
                 Extention.Print(ConsoleColor.Yellow, $"ID:{item.Id} {item.Name}.");
 
             }
-            int id = int.Parse(Console.ReadLine());
-            if (id > DataContext.Countries.Count)
+            int id;
+            try
             {
+             id = int.Parse(Console.ReadLine());
+            if (!(id == DataContext.Countries.Count))
+            {
+                    Console.Clear();
+                    Extention.Print(ConsoleColor.Red, "Please choose current the ID.");
+                goto RestartMenu;
+            }
+
+            }
+            catch (Exception)
+            {
+                Console.Clear();
                 Extention.Print(ConsoleColor.Red, "Please choose current the ID.");
                 goto RestartMenu;
             }
 
             Console.Clear();
-            Extention.Print(ConsoleColor.Red, $"{countryService.Delete(id).Name} is removed.");
+            countryService.Delete(id);
+            Extention.Print(ConsoleColor.Red, $"{id} country removed.");
+            //if (DataContext.Countries.Count==0)
+            //{
+            //    goto Up;
+            //}
         }
         public void GetCountry()
         {
@@ -133,10 +149,11 @@ namespace CreateCountryApp.Controllers
                 Extention.Print(ConsoleColor.Yellow, $"\"ID:{item.Id} {item.Name}.\"");
             }
             int id;
-            
+            try
+            {
             id = Convert.ToInt32(Console.ReadLine());
 
-            if (!(id >= CountryService.Count))
+            if ((id == DataContext.Countries.Count))
             {
 
                 string countryNewName;
@@ -154,6 +171,15 @@ namespace CreateCountryApp.Controllers
                 Extention.Print(ConsoleColor.Green, $"{cntry.Name} updated!");
             }
             else
+            {
+                Console.Clear();
+                Extention.Print(ConsoleColor.Red, "Please enter the country ID for update.\n" +
+                                                   "Country list:");
+                goto Update;
+            }
+
+            }
+            catch (Exception)
             {
                 Console.Clear();
                 Extention.Print(ConsoleColor.Red, "Please enter the country ID for update.\n" +

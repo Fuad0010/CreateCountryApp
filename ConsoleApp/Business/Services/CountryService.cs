@@ -48,11 +48,18 @@ namespace Business.Services
             Country isExist = _countryRepository.GetOne(g => g.Id == id);
             if (isExist == null)
             {
+                     Console.WriteLine("Not Found"); 
                 return null;
+               
             }
-            isExist.Name = country.Name;
-            _countryRepository.Update(isExist);
-            return isExist;
+            else
+            {
+                isExist.Name = country.Name;
+                _countryRepository.Update(isExist);
+                return isExist;
+
+            }
+           
         }
         public List<Country> GetAll()
         {

@@ -20,8 +20,6 @@ namespace CreateCountryApp
             
 
 
-            while (true)
-            {
                 CountryController countryController = new CountryController();
                 Up:
                 Extention.Print(ConsoleColor.Cyan, "1. Create Country\n" +
@@ -60,6 +58,8 @@ namespace CreateCountryApp
                     Extention.Print(ConsoleColor.Red, "Please choose current menu.");
                     goto Up;
                 }
+            while (true)
+            {
             RestartMenu:
 
                 Extention.Print(ConsoleColor.Cyan, "1. Create Country.\n" +
